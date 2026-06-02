@@ -358,12 +358,12 @@ def draw_picture(width, height):
         fill_triangle(x - 22, 240, x + 42, 240, x + 10, 170)    
     #9. Draw Chicken
     #Written by James with AI to draw the the chicken
-    draw_chicken(150, 320, 1.0, "white")  # Standard size white chicken
-    draw_chicken(200, 340, 0.4, "yellow") # Tiny yellow baby chick nearby
-        fill_triangle(x - 22, 240, x + 42, 240, x + 10, 170)
+    draw_chicken(370, 320, 1.0, "white")  # Standard size white chicken
+    draw_chicken(450, 340, 0.4, "yellow") # Tiny yellow baby chick nearby
+    fill_triangle(x - 22, 240, x + 42, 240, x + 10, 170)
         
     #Function Call of Dinosaur
-    draw_trex(200, 300, 4, "darkgreen", "right"
+    draw_trex(200, 300, 4, "darkgreen", "right")
 
 if __name__ == "__main__":
     # Start the single combined canvas window
