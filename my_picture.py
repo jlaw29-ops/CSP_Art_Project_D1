@@ -8,6 +8,52 @@ _fill_color = "black"
 _outline_color = "black"
 _line_thickness = 1
 
+def draw_meteor(x, y, size):
+
+    # Outer glow
+    set_fill_color("#FFD700")
+    set_outline_color("")
+
+    fill_circle(x - size*5, y - size*4, size)
+    fill_circle(x - size*4, y - size*3, size)
+    fill_circle(x - size*3, y - size*2, size)
+
+    # Orange flame
+    set_fill_color("#FFA500")
+
+    fill_circle(x - size*4, y - size*3, size-2)
+    fill_circle(x - size*3, y - size*2, size-2)
+    fill_circle(x - size*2, y - size, size-2)
+
+    # Red-hot core
+    set_fill_color("#FF4500")
+
+    fill_circle(x - size*3, y - size*2, size-4)
+    fill_circle(x - size*2, y - size, size-4)
+
+    # Meteor body
+    set_fill_color("#5B4B43")
+    set_outline_color("black")
+    set_line_thickness(2)
+
+    _canvas.create_polygon(
+        x, y,
+        x + size, y - size,
+        x + size*2, y,
+        x + size*1.7, y + size,
+        x + size//2, y + size,
+        x - size//2, y + size//3,
+        fill=_fill_color,
+        outline=_outline_color,
+        width=2
+    )
+
+    # Craters
+    set_fill_color("#2E2520")
+    fill_circle(x + size//2, y, max(2, size//5))
+    fill_circle(x + size, y + size//3, max(2, size//6))
+    fill_circle(x + size//3, y + size//2, max(2, size//7))
+
 def start(draw_function, width=800, height=600):
     """Sets up the window and calls the student's drawing function."""
     global _canvas
@@ -345,6 +391,7 @@ def draw_picture(width, height):
     set_outline_color("black")
     set_line_thickness(1)
     draw_line(0, 250, 600, 250)
+
     
     # 8. Draw Forest
     #Written by Justin with some AI to help tidy things up
@@ -356,6 +403,15 @@ def draw_picture(width, height):
         set_outline_color("black")
         fill_triangle(x - 30, 275, x + 50, 275, x + 10, 200)
         fill_triangle(x - 22, 240, x + 42, 240, x + 10, 170)    
+
+    draw_meteor(50, 40, 10)
+    draw_meteor(120, 70, 8)
+    draw_meteor(210, 50, 12)
+    draw_meteor(300, 90, 9)
+    draw_meteor(380, 45, 14)
+    draw_meteor(470, 80, 10)
+    draw_meteor(540, 35, 11)
+    
     #9. Draw Chicken
     #Written by James with AI to draw the the chicken
     draw_chicken(370, 320, 1.0, "white")  # Standard size white chicken
